@@ -1,3 +1,5 @@
+import { Payment } from './shared/payment.model';
+import { PaymentService } from './shared/payment.service';
 import { Customer } from './shared/customer.model';
 import { Component } from '@angular/core';
 import { CustomerService } from './shared/customer.service';
@@ -10,18 +12,16 @@ import { CustomerService } from './shared/customer.service';
 export class AppComponent {
   private customers: Customer[] = [];
   private activeCustomer: Customer = null;
+  private activeCustomerPayments: Payment[] = [];
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService, private paymentService: PaymentService) {
     this.customerService.customerChanged.subscribe(customers => {
       this.customers = customers;
     });
   }
 
-  setActiveCustomer(event) {
-    this.activeCustomer = this.getCustomerById(event);
-  }
-
-  getCustomerById(id: number): Customer {
-    return this.customers.filter(customer => customer.id == id)[0]; 
+  setActiveCustomer(event: Customer) {
+    this.activeCustomer = event;
+    this.activeCustomerPayments = this.paymentService.getPaymentByCustomerId(this.activeCustomer.id);
   }
 }

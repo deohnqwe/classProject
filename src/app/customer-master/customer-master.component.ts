@@ -9,7 +9,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CustomerMasterComponent implements OnInit {
   @Input() customers: Customer[] = [];
-  @Output() customerSelected: EventEmitter<number> = new EventEmitter(null);
+  @Output() customerSelected: EventEmitter<Customer> = new EventEmitter(null);
 
   constructor() { }
 
@@ -17,7 +17,6 @@ export class CustomerMasterComponent implements OnInit {
   }
 
   customerClicked(customer: Customer) {
-    this.customerSelected.emit(customer.id);
+    this.customerSelected.emit(customer);
   }
-
 }

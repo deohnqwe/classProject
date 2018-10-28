@@ -42,7 +42,4 @@ export class CustomerService {
 
     this.customerChanged.next(this.customers);
   }
-
-
-
 }

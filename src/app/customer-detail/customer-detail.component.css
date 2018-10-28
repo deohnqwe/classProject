@@ -1,0 +1,10 @@
+.customer-detail{
+    flex-grow: 2;
+}
+mat-card-title{
+    margin-bottom: 40px !important; 
+}
+mat-card-subtitle{
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+}

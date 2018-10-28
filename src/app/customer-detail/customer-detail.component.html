@@ -1,3 +1,20 @@
-<p>
-  customer-detail works!
-</p>
+<mat-card class="customer-detail" *ngIf="activeCustomer">
+  <mat-card-title>Customer Information</mat-card-title>
+  <mat-card-subtitle>Name: {{ activeCustomer.firstName }} {{ activeCustomer.lastName }} </mat-card-subtitle>
+  <mat-card-subtitle>Phone Number: {{ activeCustomer.phone }}</mat-card-subtitle>
+  <mat-card-subtitle>Email: {{ activeCustomer.email }} </mat-card-subtitle>
+  <mat-card-subtitle>Past Payments:</mat-card-subtitle> 
+
+  <mat-card *ngFor="let payment of customerPayments; let i = index;">
+    <mat-card-title>Payment # {{ i + 1}}</mat-card-title>
+    <mat-card-subtitle>Credit Card Type: {{ payment.ccType }} </mat-card-subtitle>
+    <mat-card-subtitle>Card Last 4:{{ payment.ccLast4 }} </mat-card-subtitle>
+    <mat-card-subtitle>Card First Name: {{ payment.ccFirstName }} </mat-card-subtitle>
+    <mat-card-subtitle>Card Last Name: {{ payment.ccLasttName }} </mat-card-subtitle>
+    <mat-card-subtitle>Card Expiration Date: {{ payment.ccExpDate }} </mat-card-subtitle>
+  </mat-card>
+</mat-card>
+
+<mat-card class="customer-detail" *ngIf="!activeCustomer">
+  <mat-card-title>No Customer Selected</mat-card-title>
+</mat-card>

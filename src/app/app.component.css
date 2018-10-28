@@ -1,0 +1,11 @@
+router-outlet{
+    display: flex;
+}
+app-customer-master{
+    width: 60%;
+    display: flex;
+}
+app-customer-detail{
+    width: 40%;
+    display: flex;
+}

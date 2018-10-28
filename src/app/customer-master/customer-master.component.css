@@ -1,0 +1,11 @@
+.customer-master{
+    flex-grow: 2;
+    margin-right: 20px;
+}
+mat-card-title{
+    margin-bottom: 40px !important; 
+}
+mat-card-subtitle.customer{
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+}

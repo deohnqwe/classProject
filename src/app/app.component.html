@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <router-outlet>
   <app-customer-master [customers]="customers" (customerSelected)="setActiveCustomer($event)"></app-customer-master>
-  <app-customer-detail></app-customer-detail>
+  <app-customer-detail [activeCustomer]="activeCustomer" [customerPayments]="activeCustomerPayments"></app-customer-detail>
 </router-outlet>
